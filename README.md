@@ -22,3 +22,8 @@ We can run this application in two ways
 2. This repository has docker file, where we can use docker to start both UI and Java applications.
 
 Corresponding steps to execute this application are available in UI/readme.md and backend/readme.md
+
+
+once we execute individually, we can start the application using
+
+http://localhost:3000
