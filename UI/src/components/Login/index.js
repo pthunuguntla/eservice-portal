@@ -42,6 +42,17 @@ class Login extends PureComponent {
         password: '',
     }
 
+    emailRef = React.createRef();
+
+    passwordRef = React.createRef();
+
+    buttonRef = React.createRef();
+
+
+    componentDidMount() {
+        this.emailRef.current.focus();
+    }
+
     onChange = (e, stateLabel) => {
         this.setState({
             [stateLabel]: e.target.value
@@ -49,6 +60,18 @@ class Login extends PureComponent {
     }
 
 
+    onEmailKeyDown = (e) => {
+        if(e.key === 'Enter'){
+            this.passwordRef.current.focus();
+        }
+    }
+
+    onPasswordKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            this.buttonRef.current.focus();
+        }
+    }
 
     onClick = () => {
         const { email, password } = this.state;
@@ -70,6 +93,8 @@ class Login extends PureComponent {
                         placeholder={emailPlaceHolder}
                         name = "Email"
                         className="UserName"
+                        ref={this.emailRef}
+                        onKeyDown={this.onEmailKeyDown}
                     />
                     <input
                         type="password"
@@ -77,8 +102,16 @@ class Login extends PureComponent {
                         onChange={(e) => this.onChange(e, 'password')}
                         name="Password"
                         className="Password"
+                        ref={this.passwordRef}
+                        onKeyDown={this.onPasswordKeyDown}
                     />
-                    <button onClick={this.onClick} className="Proceed">Proceed to login</button>
+                    <button 
+                        onClick={this.onClick} 
+                        className="Proceed" 
+                        ref={this.buttonRef}
+                        >
+                    Proceed to login
+                    </button>
                     {serviceType === null && <h3 className="">Please Enter Correct UserName and Password To Proceed</h3>}
                  </div>
                  </Fragment>
