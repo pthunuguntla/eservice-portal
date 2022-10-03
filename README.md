@@ -7,13 +7,13 @@ A sample login page where based on user login we can see their respective dashbo
 
 for admin login
 
-email : admin@admin.com
-password: admin
+email : 
+password: 
 
 For customer login
 
-email: customer@cust.com
-password: customer
+email: 
+password: 
 
 
 We can run this application in two ways
